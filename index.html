@@ -1,176 +1,372 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Infinity Analytica | www.inai.co.za</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="description" content="Infinity Analytica - Analytics, IT consulting and custom solutions. Contact rishay@inai.co.za | 061 403 6697" />
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      background: #f4f6f9;
-      color: #333;
-      overflow-x: hidden;
+    :root{
+      --bg:#f4f6f9;
+      --card:#ffffff;
+      --blue-600: #0f4c81;
+      --blue-400: #0a74da;
+      --accent: #ffcf48;
+      --muted:#64707a;
+      --radius:12px;
+      --shadow: 0 6px 20px rgba(12,20,40,0.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:var(--bg);color:#0b1720;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
+    html{scroll-behavior:smooth}
+    a{color:inherit}
+
+    /* NAV (simple sticky) */
+    .nav{
+      width:100%;
+      position:sticky;
+      top:0;
+      z-index:60;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(to right, rgba(255,255,255,0.6), rgba(255,255,255,0.55));
+      border-bottom: 1px solid rgba(15,76,129,0.06);
+    }
+    .nav .wrap{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:1rem;padding:0.6rem 1rem;}
+    .logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+    .logo svg{width:38px;height:38px;flex-shrink:0}
+    .nav .links{margin-left:auto;display:flex;gap:1rem;align-items:center}
+    .nav a.link{font-size:0.95rem;color:var(--blue-600);text-decoration:none;padding:0.45rem 0.6rem;border-radius:8px}
+    .nav a.link:hover{background:rgba(10,116,218,0.08)}
+
+    /* HERO */
+    header.hero{
+      position:relative;
+      overflow:hidden;
+      min-height:380px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:3.25rem 1rem;
+    }
+    .hero .bg-svg{position:absolute;inset:0;display:block;pointer-events:none}
+    .hero .container{position:relative;z-index:2;max-width:1100px;width:100%;display:grid;grid-template-columns:1fr 420px;gap:2rem;align-items:center}
+    .hero h1{font-size:2.35rem;margin:0;color:white;line-height:1.02;text-shadow:0 4px 30px rgba(3,15,36,0.45);animation:slideIn 900ms cubic-bezier(.2,.9,.3,1) both}
+    .hero p{margin:.8rem 0 1.2rem;color:rgba(255,255,255,0.92);max-width:48ch; font-size:1.05rem;animation:fadeIn 1200ms both}
+    .hero .cta{display:flex;gap:0.75rem;align-items:center}
+    .btn{
+      display:inline-flex;align-items:center;gap:.6rem;padding:.65rem .95rem;border-radius:10px;border:0;cursor:pointer;font-weight:600;
+    }
+    .btn-primary{background:linear-gradient(90deg,var(--blue-400),var(--blue-600));color:#fff;box-shadow:0 6px 20px rgba(10,116,218,0.18)}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.16);color:rgba(255,255,255,0.95)}
+
+    /* HERO RIGHT CARD (quick stats / image) */
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border-radius:14px;padding:1.25rem;color:#fff;backdrop-filter: blur(6px);box-shadow:0 10px 30px rgba(3,15,36,0.2);
+      transform:translateY(8px);animation:popIn 1000ms 300ms both;
+    }
+    .hero-card h4{margin:0 0 .25rem 0;font-size:1rem;font-weight:600}
+    .hero-card p{margin:0;font-size:.95rem;color:rgba(255,255,255,0.9)}
+
+    /* MAIN CONTENT */
+    main{max-width:1100px;margin:2.25rem auto;padding:0 1rem}
+    section{margin:2rem 0}
+    .section-title{display:flex;align-items:center;gap:10px;justify-content:center;flex-direction:column}
+    .section-title h2{margin:0;color:var(--blue-600);font-size:1.6rem}
+    .section-title p{margin:0;margin-top:.35rem;color:var(--muted);max-width:70ch;text-align:center}
+
+    /* SERVICES GRID */
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;margin-top:1.25rem}
+    .card{
+      background:var(--card);border-radius:var(--radius);padding:1.25rem;box-shadow:var(--shadow);transition:transform .28s cubic-bezier(.2,.9,.3,1),box-shadow .28s;
+      display:flex;gap:1rem;align-items:flex-start;
+    }
+    .card:hover{transform:translateY(-8px);box-shadow: 0 14px 36px rgba(12,20,40,0.12)}
+    .card .icon{flex-shrink:0;width:56px;height:56px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(180deg,var(--blue-400),var(--blue-600));color:#fff;box-shadow:0 6px 18px rgba(10,116,218,0.14)}
+    .card h3{margin:0;font-size:1.05rem;color:var(--blue-600)}
+    .card p{margin: .35rem 0 0;color:var(--muted);font-size:.95rem}
+
+    /* CASES / VISUALS */
+    .cases{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
+    .case{
+      background:linear-gradient(180deg,#fff,#fbfbfd);
+      border-radius:12px;padding:12px;box-shadow:var(--shadow);display:flex;gap:.8rem;align-items:center;
+    }
+    .case .thumb{width:84px;height:64px;border-radius:8px;flex-shrink:0;background:linear-gradient(135deg,var(--blue-400),var(--blue-600));display:grid;place-items:center;color:#fff;font-weight:700;letter-spacing:0.3px}
+    .case .meta h4{margin:0;font-size:1rem;color:#0b1720}.case .meta p{margin:6px 0 0;font-size:.9rem;color:var(--muted)}
+
+    /* CONTACT */
+    .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:1rem;align-items:start}
+    .contact-card{background:var(--card);border-radius:12px;padding:1.1rem;box-shadow:var(--shadow)}
+    .contact-card a{color:var(--blue-600);font-weight:600}
+
+    /* FOOTER */
+    footer{margin-top:2.5rem;padding:2rem 1rem;background:linear-gradient(90deg,var(--blue-600),var(--blue-400));color:#fff;border-radius:10px;max-width:1100px;margin-left:auto;margin-right:auto}
+
+    /* small screens */
+    @media (max-width:880px){
+      .hero .container{grid-template-columns:1fr; text-align:center}
+      .contact-grid{grid-template-columns:1fr}
+      .cases{grid-template-columns:1fr}
     }
 
-    /* Header / Hero */
-    header {
-      background: url('https://images.unsplash.com/photo-1605902711622-cfb43c4437e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center/cover;
-      color: #fff;
-      text-align: center;
-      padding: 6rem 2rem;
-      position: relative;
-    }
-    header::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-    }
-    header h1, header p {
-      position: relative;
-      z-index: 1;
-      animation: fadeInUp 1.5s ease;
-    }
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-    header p {
-      font-size: 1.3rem;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    /* Sections */
-    section {
-      max-width: 1100px;
-      margin: 3rem auto;
-      padding: 2rem;
-      text-align: center;
-      animation: fadeIn 2s ease;
-    }
-    section h2 {
-      font-size: 2rem;
-      color: #0a74da;
-      margin-bottom: 1rem;
-    }
-    section p {
-      font-size: 1.1rem;
-    }
-
-    /* Services */
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 2rem 1.5rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-    }
-    .card img {
-      width: 60px;
-      margin-bottom: 1rem;
-    }
-    .card h3 {
-      color: #0f4c81;
-      margin-bottom: 0.5rem;
-    }
-
-    /* Contact */
-    .contact-info {
-      font-size: 1.2rem;
-      margin-top: 1rem;
-    }
-    .contact-info a {
-      color: #0a74da;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    /* Footer */
-    footer {
-      background: #0f4c81;
-      color: #fff;
-      text-align: center;
-      padding: 1.5rem;
-      margin-top: 3rem;
-    }
-    footer a {
-      color: #ffdf5d;
-      text-decoration: none;
-    }
-
-    /* Animations */
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
-    @keyframes fadeInUp {
-      from {opacity: 0; transform: translateY(40px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
+    /* animations */
+    @keyframes slideIn{from{transform:translateY(18px);opacity:0}to{transform:translateY(0);opacity:1}}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    @keyframes popIn{from{opacity:0;transform:translateY(18px) scale(.995)}to{opacity:1;transform:none}}
   </style>
 </head>
 <body>
-  <header>
-    <h1>Infinity Analytica</h1>
-    <p>Empowering Businesses with Data-Driven Insights & IT Solutions</p>
+
+  <!-- NAV -->
+  <nav class="nav" aria-label="Main navigation">
+    <div class="wrap">
+      <a href="#top" class="logo" aria-label="Infinity Analytica home">
+        <!-- Inline logo SVG -->
+        <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0" stop-color="#0a74da"/>
+              <stop offset="1" stop-color="#0f4c81"/>
+            </linearGradient>
+          </defs>
+          <rect width="64" height="64" rx="12" fill="url(#g)"/>
+          <text x="32" y="38" font-family="sans-serif" font-weight="700" font-size="26" text-anchor="middle" fill="#fff">IA</text>
+        </svg>
+        <div style="line-height:1">
+          <div style="font-weight:700;color:var(--blue-600)">Infinity Analytica</div>
+          <div style="font-size:12px;color:var(--muted)">www.inai.co.za</div>
+        </div>
+      </a>
+
+      <div class="links" role="navigation" aria-label="quick links">
+        <a class="link" href="#about">About</a>
+        <a class="link" href="#services">Services</a>
+        <a class="link" href="#contact">Contact</a>
+        <a class="link" href="mailto:rishay@inai.co.za">Email</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO (SVG background embedded so 'image' always works) -->
+  <header id="top" class="hero" role="banner">
+    <!-- decorative svg background -->
+    <svg class="bg-svg" viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="bggrad" x1="0" x2="1">
+          <stop offset="0" stop-color="#0a74da"/>
+          <stop offset="1" stop-color="#0f4c81"/>
+        </linearGradient>
+        <filter id="blur">
+          <feGaussianBlur stdDeviation="34" />
+        </filter>
+      </defs>
+
+      <rect width="1400" height="600" fill="url(#bggrad)"></rect>
+
+      <!-- abstract shapes for an 'image' look -->
+      <g opacity="0.18" filter="url(#blur)" transform="translate(-60,-10)">
+        <circle cx="300" cy="180" r="220" fill="#fff"/>
+        <circle cx="950" cy="80" r="140" fill="#fff"/>
+        <rect x="700" y="220" width="420" height="260" rx="28" fill="#fff"/>
+      </g>
+
+      <!-- subtle pattern lines -->
+      <g opacity="0.06" stroke="#fff" stroke-width="2" stroke-linecap="round">
+        <path d="M8 520c160-100 360-110 560-80 200 30 420 120 624 160" fill="none"/>
+      </g>
+    </svg>
+
+    <div class="container">
+      <div style="color:#fff">
+        <h1>Infinity Analytica</h1>
+        <p>We turn complex datasets into clear decisions. Analytics, IT consulting and bespoke data solutions for enterprises that want to move faster and smarter.</p>
+
+        <div class="cta" style="margin-top:1rem">
+          <a class="btn btn-primary" href="#contact" title="Contact Infinity Analytica">Get in touch</a>
+          <a class="btn btn-ghost" href="#services">Our services</a>
+        </div>
+      </div>
+
+      <div class="hero-card" aria-hidden="false">
+        <h4>Fast facts</h4>
+        <p style="margin-bottom:.6rem">Serving operations, finance and supply chain with dashboards, forecasts and integrations.</p>
+        <div style="display:flex;gap:10px;align-items:center;justify-content:space-between">
+          <div style="text-align:left">
+            <div style="font-size:1.2rem;font-weight:700">100k+</div>
+            <div style="font-size:0.82rem;color:rgba(255,255,255,0.92)">data rows processed / day</div>
+          </div>
+          <div style="text-align:left">
+            <div style="font-size:1.2rem;font-weight:700">3</div>
+            <div style="font-size:0.82rem;color:rgba(255,255,255,0.92)">core service areas</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <section>
-    <h2>About Us</h2>
-    <p>
-      Infinity Analytica (<strong>www.inai.co.za</strong>) is an IT services platform focused on transforming raw data into actionable insights. 
-      We specialize in analytics, IT consulting, and digital solutions that help organizations make smarter, 
-      faster, and more confident business decisions. Our mission is to bridge the gap between technology and 
-      strategy, driving growth through innovation.
-    </p>
-  </section>
+  <main>
+    <!-- ABOUT -->
+    <section id="about" aria-labelledby="about-title">
+      <div class="section-title">
+        <h2 id="about-title">About Infinity Analytica</h2>
+        <p>Infinity Analytica (www.inai.co.za) helps organizations convert data into trusted insights. We combine engineering, analytics and domain knowledge to deliver dashboards, predictive models and integrations that actually get used.</p>
+      </div>
+    </section>
 
-  <section>
-    <h2>Our Services</h2>
-    <div class="services">
-      <div class="card">
-        <img src="https://cdn.jsdelivr.net/gh/tabler/tabler-icons/icons/database-analytics.svg" alt="Data Analytics">
-        <h3>Data Analytics</h3>
-        <p>Turning complex datasets into clear business intelligence with dashboards, reporting, and predictive models.</p>
+    <!-- SERVICES -->
+    <section id="services" aria-labelledby="services-title">
+      <div class="section-title">
+        <h2 id="services-title">Our services</h2>
+        <p>Practical, production-focused analytics — from discovery to deployment.</p>
       </div>
-      <div class="card">
-        <img src="https://cdn.jsdelivr.net/gh/tabler/tabler-icons/icons/brand-figma.svg" alt="IT Consulting">
-        <h3>IT Consulting</h3>
-        <p>Helping businesses optimize infrastructure, improve workflows, and adopt modern digital solutions.</p>
-      </div>
-      <div class="card">
-        <img src="https://cdn.jsdelivr.net/gh/tabler/tabler-icons/icons/code.svg" alt="Custom Solutions">
-        <h3>Custom Solutions</h3>
-        <p>Building tailor-made tools and applications that align with your unique business needs and goals.</p>
-      </div>
-    </div>
-  </section>
 
-  <section>
-    <h2>Contact Us</h2>
-    <div class="contact-info">
-      <p>Email: <a href="mailto:rishay@inai.co.za">rishay@inai.co.za</a></p>
-      <p>Phone: <a href="tel:+27614036697">061 403 6697</a></p>
-      <p>Website: <a href="https://www.inai.co.za">www.inai.co.za</a></p>
-    </div>
-  </section>
+      <div class="services-grid" role="list">
+        <!-- card: analytics -->
+        <div class="card" role="listitem" aria-label="Data analytics">
+          <div class="icon" aria-hidden="true">
+            <!-- database / analytics svg -->
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <ellipse cx="12" cy="5" rx="7.2" ry="2.6" fill="white" opacity="0.98"/>
+              <path d="M4.8 5.2v6.2c0 1.4 3.2 2.6 7.2 2.6s7.2-1.2 7.2-2.6V5.2" stroke="rgba(255,255,255,0.15)" stroke-width="0.8"/>
+              <rect x="6.8" y="12.2" width="3" height="6.4" rx="0.6" fill="white" opacity="0.98"/>
+              <rect x="11.8" y="9.4" width="3" height="9.2" rx="0.6" fill="white" opacity="0.98"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Data & Business Analytics</h3>
+            <p>Dashboards, KPI reporting, segmentation and predictive models to guide operational and strategic decisions.</p>
+          </div>
+        </div>
+
+        <!-- card: consulting -->
+        <div class="card" role="listitem" aria-label="IT consulting">
+          <div class="icon" aria-hidden="true">
+            <!-- gear / consulting svg -->
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" fill="white" opacity="0.96"/>
+              <path d="M20.1 13.2c.04-.4.04-.8.04-1.2s0-.8-.04-1.2l1.9-1.5a.6.6 0 0 0 .14-.74l-1.8-3.1a.6.6 0 0 0-.72-.28l-2.2.9a7.5 7.5 0 0 0-1.9-1.1l-.34-2.3A.6.6 0 0 0 14.6 2h-3.2a.6.6 0 0 0-.6.5l-.34 2.3c-.66.26-1.27.6-1.86 1l-2.2-.9a.6.6 0 0 0-.72.28L2.64 8.6a.6.6 0 0 0 .14.74L4.7 11a7.5 7.5 0 0 0 0 2.4l-1.9 1.5a.6.6 0 0 0-.14.74l1.8 3.1c.15.27.46.38.72.28l2.2-.9c.58.4 1.2.74 1.86 1l.34 2.3c.06.28.3.5.6.5h3.2c.3 0 .54-.22.6-.5l.34-2.3c.66-.26 1.27-.6 1.9-1.1l2.2.9c.26.1.57 0 .72-.28l1.8-3.1c.15-.27.1-.62-.14-.74l-1.9-1.5z" fill="rgba(255,255,255,0.95)"/>
+            </svg>
+          </div>
+          <div>
+            <h3>IT Strategy & Consulting</h3>
+            <p>Architecture reviews, integration planning, cloud migration guidance and pragmatic roadmaps that align IT with business outcomes.</p>
+          </div>
+        </div>
+
+        <!-- card: custom development -->
+        <div class="card" role="listitem" aria-label="Custom solutions">
+          <div class="icon" aria-hidden="true">
+            <!-- code brackets svg -->
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M8.5 7.5 4 12l4.5 4.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M15.5 7.5 20 12l-4.5 4.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="7" y="3" width="10" height="18" rx="2" fill="rgba(255,255,255,0.06)"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Custom Solutions & Integrations</h3>
+            <p>APIs, ETL, data pipelines and bespoke apps integrated into your ERP and operational systems with an emphasis on reliability and maintainability.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CASE STUDIES / ILLUSTRATIONS -->
+      <div class="cases" aria-hidden="false" style="margin-top:1.25rem">
+        <div class="case">
+          <div class="thumb">DB</div>
+          <div class="meta">
+            <h4>Operational dashboard</h4>
+            <p>Real-time mill production dashboards used by shift supervisors for immediate decisions and alerts.</p>
+          </div>
+        </div>
+
+        <div class="case">
+          <div class="thumb">ML</div>
+          <div class="meta">
+            <h4>Predictive yield model</h4>
+            <p>Model to predict monthly yields and help operations plan maintenance and logistics.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="section-title">
+        <h2 id="contact-title">Contact Us</h2>
+        <p>Reach out to discuss a proof-of-value, integration, or a pilot project — we respond quickly.</p>
+      </div>
+
+      <div class="contact-grid" style="margin-top:1rem">
+        <div class="contact-card">
+          <h3 style="margin-top:0">Get in touch</h3>
+          <p style="color:var(--muted);margin-bottom:1rem">Email or call us — or send a short description of your project.</p>
+
+          <p><strong>Email:</strong> <a href="mailto:rishay@inai.co.za">rishay@inai.co.za</a></p>
+          <p><strong>Phone:</strong> <a href="tel:+27614036697">+27 61 403 6697</a></p>
+          <p style="margin-top:.6rem"><strong>Website:</strong> <a href="https://www.inai.co.za">www.inai.co.za</a></p>
+
+          <hr style="border:none;border-top:1px solid #eef2f6;margin:1rem 0">
+
+          <p style="margin:0;color:var(--muted)"><strong>Typical engagements:</strong></p>
+          <ul style="margin:.5rem 0 0 1.1rem;color:var(--muted)">
+            <li>Pilot dashboards (2–4 weeks)</li>
+            <li>Data platform assessments</li>
+            <li>Custom API and ETL builds</li>
+          </ul>
+        </div>
+
+        <div class="contact-card" aria-hidden="true">
+          <!-- decorative illustration (svg) -->
+          <svg width="100%" height="100%" viewBox="0 0 600 360" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Analytics illustration">
+            <defs>
+              <linearGradient id="g2" x1="0" x2="1"><stop offset="0" stop-color="#0a74da"/><stop offset="1" stop-color="#0f4c81"/></linearGradient>
+            </defs>
+            <rect width="100%" height="100%" rx="10" fill="#fbfdff"/>
+            <!-- a stylized chart -->
+            <g transform="translate(40,40)" fill="none" stroke="#dbe8ff" stroke-width="12" stroke-linecap="round">
+              <path d="M0 200 C90 40 240 160 360 50" stroke="#e9f2ff"/>
+            </g>
+            <g transform="translate(60,90)" fill="url(#g2)">
+              <rect x="0" y="80" width="46" height="100" rx="6"></rect>
+              <rect x="70" y="40" width="46" height="140" rx="6"></rect>
+              <rect x="140" y="12" width="46" height="168" rx="6"></rect>
+            </g>
+            <g transform="translate(340,44)" fill="#0f4c81" opacity="0.06">
+              <rect x="0" y="0" width="200" height="200" rx="16"></rect>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 Infinity Analytica | <a href="https://www.inai.co.za">www.inai.co.za</a>. All Rights Reserved.</p>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="font-weight:700">Infinity Analytica</div>
+        <div style="color:rgba(255,255,255,0.9)">www.inai.co.za • rishay@inai.co.za • +27 61 403 6697</div>
+      </div>
+      <div style="font-size:.94rem;color:rgba(255,255,255,0.92)">© <span id="yr"></span> Infinity Analytica — All rights reserved</div>
+    </div>
   </footer>
+
+  <script>
+    // small niceties
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // reveal-on-scroll (lightweight)
+    const obs = new IntersectionObserver((items)=>{
+      items.forEach(i=>{
+        if(i.isIntersecting) { i.target.style.opacity = 1; i.target.style.transform = 'translateY(0)'; obs.unobserve(i.target) }
+      })
+    }, {threshold:0.12});
+
+    document.querySelectorAll('.card, .case, .hero-card').forEach(el=>{
+      el.style.opacity = 0; el.style.transform = 'translateY(18px)'; el.style.transition = 'opacity .7s ease, transform .7s cubic-bezier(.2,.9,.3,1)';
+      obs.observe(el)
+    });
+  </script>
 </body>
 </html>
-
