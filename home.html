@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Infinity Analytica | Home</title>
+  <meta name="description" content="Infinity Analytica provides analytics, AI governance frameworks, and VAT verification solutions for compliant, data-driven enterprises." />
+
+  <style>
+    :root{
+      --bg:#f4f6f9;
+      --card:#ffffff;
+      --primary:#0f4c81;
+      --accent:#0a74da;
+      --muted:#5f6b75;
+      --radius:14px;
+      --shadow:0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      background:var(--bg);
+      color:#111;
+    }
+
+    a{text-decoration:none;color:inherit;}
+
+    /* NAV */
+    nav{
+      background:#fff;
+      border-bottom:1px solid #e6edf3;
+      position:sticky;
+      top:0;
+      z-index:100;
+    }
+    .nav-wrap{
+      max-width:1100px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:1rem;
+    }
+    .brand{font-weight:700;font-size:1.1rem;color:var(--primary);}
+    .nav-links a{margin-left:1.5rem;font-weight:500;color:var(--primary);}
+
+    /* HERO */
+    header{
+      background:linear-gradient(135deg,var(--accent),var(--primary));
+      color:#fff;
+      padding:4rem 1rem;
+      text-align:center;
+    }
+    header h1{margin:0;font-size:2.4rem;}
+    header p{
+      margin:1rem auto 0;
+      max-width:650px;
+      font-size:1.1rem;
+      opacity:.95;
+    }
+
+    /* SECTION */
+    section{
+      max-width:1100px;
+      margin:3rem auto;
+      padding:0 1rem;
+    }
+    .section-title{text-align:center;margin-bottom:2rem;}
+    .section-title h2{margin:0;color:var(--primary);}
+    .section-title p{
+      color:var(--muted);
+      max-width:700px;
+      margin:.75rem auto 0;
+    }
+
+    /* SERVICE CARDS */
+    .services{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:1.5rem;
+    }
+    .card{
+      background:var(--card);
+      padding:1.75rem;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      transition:transform .25s ease;
+    }
+    .card:hover{transform:translateY(-6px);}
+    .card h3{margin-top:0;color:var(--primary);}
+    .card p{color:var(--muted);font-size:.95rem;}
+    .btn{
+      display:inline-block;
+      margin-top:1rem;
+      padding:.6rem 1rem;
+      background:var(--accent);
+      color:#fff;
+      border-radius:8px;
+      font-weight:600;
+      font-size:.9rem;
+    }
+
+    /* FOOTER */
+    footer{
+      background:var(--primary);
+      color:#fff;
+      padding:2rem 1rem;
+      text-align:center;
+      margin-top:4rem;
+    }
+
+    @media(max-width:768px){
+      header h1{font-size:1.9rem;}
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-wrap">
+      <div class="brand">Infinity Analytica</div>
+      <div class="nav-links">
+        <a href="#mission">Mission</a>
+        <a href="#services">Services</a>
+        <a href="mailto:rishay@inai.co.za">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Clarity Through Data. Control Through Governance.</h1>
+    <p>
+      Infinity Analytica delivers enterprise analytics, AI governance frameworks,
+      and compliance-driven verification systems that enable organisations to
+      operate intelligently, securely, and lawfully in a data-driven economy.
+    </p>
+  </header>
+
+  <section id="mission">
+    <div class="section-title">
+      <h2>Our Mission</h2>
+      <p>
+        To strengthen organisational decision-making by combining advanced analytics,
+        responsible AI governance, and regulatory-compliant verification systems.
+        We design solutions that are practical, defensible, and built for long-term trust.
+      </p>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="section-title">
+      <h2>Our Services</h2>
+      <p>
+        Structured solutions built for modern enterprises navigating compliance,
+        digital transformation, and AI adoption.
+      </p>
+    </div>
+
+    <div class="services">
+
+      <div class="card">
+        <h3>AI Governance & Policy Frameworks</h3>
+        <p>
+          Custom AI use policies, governance documentation, risk frameworks,
+          and compliance structures aligned with emerging regulatory standards.
+        </p>
+        <a href="/ai-policy.html" class="btn">View AI Governance</a>
+      </div>
+
+      <div class="card">
+        <h3>Monthly VAT Verification System</h3>
+        <p>
+          Bulk VAT validation designed to protect claims, reduce audit exposure,
+          and provide documented proof of compliance at the time of transaction.
+        </p>
+        <a href="/vat.html" class="btn">View VAT Verification</a>
+      </div>
+
+      <div class="card">
+        <h3>Analytics & Custom Integrations</h3>
+        <p>
+          Dashboards, predictive modelling, ERP integrations and custom data
+          pipelines designed for operational decision-making and executive clarity.
+        </p>
+        <a href="/analytics.html" class="btn">View Analytics</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Infinity Analytica | www.inai.co.za
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
