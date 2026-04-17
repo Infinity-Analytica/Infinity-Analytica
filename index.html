@@ -3,31 +3,32 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Infinity Analytica | Home</title>
-  <meta name="description" content="Infinity Analytica provides analytics, AI governance frameworks, and VAT verification solutions for compliant, data-driven enterprises." />
+  <title>Infinity Analytica | VAT Verification & Data Governance</title>
+  <meta name="description" content="Infinity Analytica provides VAT verification, analytics, and AI governance frameworks for compliant, data-driven enterprises." />
 
   <style>
     :root{
       --bg:#f4f6f9;
       --card:#ffffff;
-      --primary:#0f4c81;
-      --accent:#0a74da;
+      --primary:#082f5a; /* darker blue */
+      --accent:#061f3a;  /* darker accent */
       --muted:#5f6b75;
       --radius:14px;
       --shadow:0 8px 24px rgba(0,0,0,0.06);
     }
 
     *{box-sizing:border-box;}
+
     body{
       margin:0;
       font-family: Inter, system-ui, -apple-system, sans-serif;
       background:var(--bg);
       color:#111;
+      line-height:1.6;
     }
 
     a{text-decoration:none;color:inherit;}
 
-    /* NAV */
     nav{
       background:#fff;
       border-bottom:1px solid #e6edf3;
@@ -35,6 +36,7 @@
       top:0;
       z-index:100;
     }
+
     .nav-wrap{
       max-width:1100px;
       margin:auto;
@@ -43,17 +45,28 @@
       justify-content:space-between;
       padding:1rem;
     }
-    .brand{font-weight:700;font-size:1.1rem;color:var(--primary);}
-    .nav-links a{margin-left:1.5rem;font-weight:500;color:var(--primary);}
 
-    /* HERO */
+    .brand{
+      font-weight:700;
+      font-size:1.1rem;
+      color:var(--primary);
+    }
+
+    .nav-links a{
+      margin-left:1.5rem;
+      font-weight:500;
+      color:var(--primary);
+    }
+
     header{
       background:linear-gradient(135deg,var(--accent),var(--primary));
       color:#fff;
       padding:4rem 1rem;
       text-align:center;
     }
+
     header h1{margin:0;font-size:2.4rem;}
+
     header p{
       margin:1rem auto 0;
       max-width:650px;
@@ -61,26 +74,28 @@
       opacity:.95;
     }
 
-    /* SECTION */
     section{
       max-width:1100px;
       margin:3rem auto;
       padding:0 1rem;
     }
+
     .section-title{text-align:center;margin-bottom:2rem;}
+
     .section-title h2{margin:0;color:var(--primary);}
+
     .section-title p{
       color:var(--muted);
       max-width:700px;
       margin:.75rem auto 0;
     }
 
-    /* SERVICE CARDS */
     .services{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
       gap:1.5rem;
     }
+
     .card{
       background:var(--card);
       padding:1.75rem;
@@ -88,31 +103,63 @@
       box-shadow:var(--shadow);
       transition:transform .25s ease;
     }
+
     .card:hover{transform:translateY(-6px);}
+
     .card h3{margin-top:0;color:var(--primary);}
+
     .card p{color:var(--muted);font-size:.95rem;}
+
     .btn{
       display:inline-block;
       margin-top:1rem;
       padding:.6rem 1rem;
-      background:var(--accent);
+      background:var(--primary);
       color:#fff;
       border-radius:8px;
       font-weight:600;
       font-size:.9rem;
     }
 
-    /* FOOTER */
     footer{
       background:var(--primary);
       color:#fff;
-      padding:2rem 1rem;
+      padding:2.5rem 1rem;
       text-align:center;
       margin-top:4rem;
+      font-size:.9rem;
+      line-height:1.8;
+    }
+      /* VAT QUOTE BOXES */
+    .vat-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:2rem;
+      align-items:start;
     }
 
-    @media(max-width:768px){
-      header h1{font-size:1.9rem;}
+    .quote-box{
+      background:#fff;
+      border-left:4px solid var(--primary);
+      padding:1rem 1.2rem;
+      margin-bottom:1rem;
+      border-radius:10px;
+      box-shadow:var(--shadow);
+      font-size:.9rem;
+      color:var(--muted);
+    }
+
+    .quote-box strong{
+      display:block;
+      color:var(--primary);
+      margin-bottom:.3rem;
+      font-size:.85rem;
+    }
+
+    @media(max-width:900px){
+      .vat-grid{
+        grid-template-columns:1fr;
+      }
     }
   </style>
 </head>
@@ -123,76 +170,141 @@
     <div class="nav-wrap">
       <div class="brand">Infinity Analytica</div>
       <div class="nav-links">
-        <a href="#mission">Mission</a>
-        <a href="#services">Services</a>
+        <a href="#vat">VAT Verification</a>
+        <a href="#ai">AI Governance</a>
+        <a href="#analytics">Analytics</a>
         <a href="mailto:rishay@inai.co.za">Contact</a>
       </div>
     </div>
   </nav>
 
   <header>
-    <h1>Clarity Through Data. Control Through Governance.</h1>
+    <h1>AI is Reshaping Business. Governance Determines the Outcome.</h1>
     <p>
-      Infinity Analytica delivers enterprise analytics, AI governance frameworks,
-      and compliance-driven verification systems that enable organisations to
-      operate intelligently, securely, and lawfully in a data-driven economy.
+      As organisations integrate artificial intelligence into operations, decision-making, and financial systems, structured governance and verifiable controls become essential to ensure compliance, accuracy, and long-term trust.
     </p>
   </header>
 
-  <section id="mission">
-    <div class="section-title">
-      <h2>Our Mission</h2>
-      <p>
-        To strengthen organisational decision-making by combining advanced analytics,
-        responsible AI governance, and regulatory-compliant verification systems.
-        We design solutions that are practical, defensible, and built for long-term trust.
-      </p>
-    </div>
-  </section>
-
   <section id="services">
     <div class="section-title">
-      <h2>Our Services</h2>
-      <p>
-        Structured solutions built for modern enterprises navigating compliance,
-        digital transformation, and AI adoption.
-      </p>
+      <h2>Our Solutions</h2>
+      <p>Explore our core service areas below.</p>
     </div>
 
     <div class="services">
 
       <div class="card">
-        <h3>AI Governance & Policy Frameworks</h3>
+        <h3>Monthly VAT Verification</h3>
         <p>
-          Custom AI use policies, governance documentation, risk frameworks,
-          and compliance structures aligned with emerging regulatory standards.
+          Validate supplier VAT numbers in bulk and maintain proof of compliance at the time of transaction.
         </p>
-        <a href="/ai-policy.html" class="btn">View AI Governance</a>
+        <a href="#vat" class="btn">Read More</a>
       </div>
 
       <div class="card">
-        <h3>Monthly VAT Verification System</h3>
+        <h3>AI Governance Frameworks</h3>
         <p>
-          Bulk VAT validation designed to protect claims, reduce audit exposure,
-          and provide documented proof of compliance at the time of transaction.
+          Establish structured policies and controls for responsible and compliant AI adoption.
         </p>
-        <a href="/vat.html" class="btn">View VAT Verification</a>
+        <a href="#ai" class="btn">Read More</a>
       </div>
 
       <div class="card">
-        <h3>Analytics & Custom Integrations</h3>
+        <h3>Analytics & Integrations</h3>
         <p>
-          Dashboards, predictive modelling, ERP integrations and custom data
-          pipelines designed for operational decision-making and executive clarity.
+          Build dashboards and data pipelines to support operational and executive decisions.
         </p>
-        <a href="/analytics.html" class="btn">View Analytics</a>
+        <a href="#analytics" class="btn">Read More</a>
       </div>
 
     </div>
   </section>
 
+  <!-- VAT SECTION (PRIMARY) -->
+  <section id="vat">
+    <div class="section-title">
+      <h2>Monthly VAT Verification System</h2>
+      <p>
+        Audit-ready VAT validation designed to protect input claims and withstand SARS scrutiny.
+      </p>
+    </div>
+
+    <div class="vat-grid">
+
+      <!-- LEFT: MAIN CONTENT -->
+      <div>
+
+        <div style="font-size:1.2rem;font-weight:700;color:var(--primary);margin-bottom:1rem;text-align:center;">
+          Businesses lose billions annually due to fraudulent or invalid VAT registrations.
+        </div>
+        <p style="max-width:820px;margin:1rem auto 0;color:var(--muted);">
+          Supplier VAT statuses can change without notice, exposing businesses to disallowed claims and audit adjustments. Monthly verification creates a dated, defensible record that strengthens compliance and ensures every claim can be substantiated.
+        </p>
+
+        <div style="margin:2rem 0;">
+          <ul style="color:var(--muted);line-height:1.8;font-size:.95rem;">
+            <li><strong>Protect input VAT claims with verified supplier status</strong></li>
+            <li><strong>Reduce audit exposure and risk of SARS reversals</strong></li>
+            <li><strong>Maintain dated, defensible compliance records</strong></li>
+            <li><strong>Enable accounting firms to deliver audit-ready client files</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- RIGHT: SARS QUOTES -->
+      <div>
+
+        <div class="quote-box">
+          <strong>VAT Act Section 16(2)</strong>
+          Input tax may only be deducted if supported by a valid tax invoice.
+        </div>
+
+        <div class="quote-box">
+          <strong>VAT Act Section 20</strong>
+          A tax invoice must reflect accurate supplier details, including VAT registration status.
+        </div>
+
+        <div class="quote-box">
+          <strong>SARS Audit Practice</strong>
+          Vendors must retain sufficient records to substantiate VAT claims during audit.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- AI SECTION -->
+  <section id="ai">
+    <div class="section-title">
+      <h2>AI Governance & Policy Frameworks</h2>
+      <p>
+        Develop internal AI policies, governance structures, and risk frameworks aligned with emerging regulation.
+      </p>
+    </div>
+  </section>
+
+  <!-- ANALYTICS SECTION -->
+  <section id="analytics">
+    <div class="section-title">
+      <h2>Analytics & Custom Integrations</h2>
+      <p>
+        Dashboards, predictive modelling, and ERP integrations for data-driven decision-making.
+      </p>
+    </div>
+  </section>
+
   <footer>
-    © <span id="year"></span> Infinity Analytica | www.inai.co.za
+    <div>
+      <strong>Infinity Analytica</strong><br>
+      Email: <a href="mailto:rishay@inai.co.za">rishay@inai.co.za</a><br>
+      Phone: 061 403 6697<br>
+      Website: www.inai.co.za
+    </div>
+    <div style="margin-top:1rem;opacity:.8;">
+      © <span id="year"></span> Infinity Analytica. All rights reserved.
+    </div>
   </footer>
 
   <script>
