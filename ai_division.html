@@ -1522,12 +1522,7 @@ footer {
         </div>
         <span>Pietermaritzburg, KwaZulu-Natal</span>
       </div>
-      <div class="contact-detail">
-        <div class="contact-icon">
-          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </div>
-        <span>shivaan@inai.co.za</span>
-      </div>
+
       <div class="contact-detail">
         <div class="contact-icon">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -1537,55 +1532,34 @@ footer {
     </div>
 
     <div class="contact-form">
-      <div class="form-title">Send us a message</div>
-      <div class="form-sub">Tell us about your business and we will get back to you within one business day.</div>
+      <div class="form-title">Get in touch directly</div>
+      <div class="form-sub">No forms, no third parties. Reach us directly and we will get back to you within one business day.</div>
 
-      <form action="mailto:shivaan@inai.co.za" method="POST" enctype="text/plain">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="fname">First Name</label>
-            <input type="text" id="fname" name="first_name" placeholder="Jane" required>
+      <div style="display:flex; flex-direction:column; gap:1.25rem; margin-top:2rem;">
+
+        <a href="mailto:shivaan@inai.co.za" style="display:flex; align-items:center; gap:1rem; background:var(--surface,#f8f8f6); border:1px solid #e0e0d8; border-radius:12px; padding:1.25rem 1.5rem; text-decoration:none; color:inherit; transition:box-shadow 0.15s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
+          <div style="width:44px; height:44px; border-radius:50%; background:#1D9E75; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </div>
-          <div class="form-group">
-            <label for="lname">Last Name</label>
-            <input type="text" id="lname" name="last_name" placeholder="Smith" required>
+          <div>
+            <div style="font-size:12px; color:#888; margin-bottom:2px; text-transform:uppercase; letter-spacing:0.05em;">Email us</div>
+            <div style="font-size:16px; font-weight:500;">shivaan@inai.co.za</div>
           </div>
-        </div>
+        </a>
 
-        <div class="form-group">
-          <label for="email">Business Email</label>
-          <input type="email" id="email" name="email" placeholder="jane@yourbusiness.co.za" required>
-        </div>
+        <a href="tel:0614025874" style="display:flex; align-items:center; gap:1rem; background:var(--surface,#f8f8f6); border:1px solid #e0e0d8; border-radius:12px; padding:1.25rem 1.5rem; text-decoration:none; color:inherit; transition:box-shadow 0.15s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
+          <div style="width:44px; height:44px; border-radius:50%; background:#1D9E75; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .82h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <div style="font-size:12px; color:#888; margin-bottom:2px; text-transform:uppercase; letter-spacing:0.05em;">Call us</div>
+            <div style="font-size:16px; font-weight:500;">061 402 5874</div>
+          </div>
+        </a>
 
-        <div class="form-group">
-          <label for="business">Business Name</label>
-          <input type="text" id="business" name="business" placeholder="Your business name">
-        </div>
+      </div>
 
-        <div class="form-group">
-          <label for="industry">Industry</label>
-          <select id="industry" name="industry">
-            <option value="" disabled selected>Select your industry</option>
-            <option>Legal services</option>
-            <option>Medical or healthcare</option>
-            <option>Accounting or financial services</option>
-            <option>Insurance</option>
-            <option>HR or recruitment</option>
-            <option>Retail or hospitality</option>
-            <option>Technology</option>
-            <option>Education</option>
-            <option>Other</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="message">How can we help?</label>
-          <textarea id="message" name="message" placeholder="Tell us a bit about your business and what you are looking for..."></textarea>
-        </div>
-
-        <button type="submit" class="form-submit">Send Message</button>
-        <p class="form-disclaimer">This form does not constitute legal advice. We will respond within one business day to discuss your needs.</p>
-      </form>
+      <p style="margin-top:2rem; font-size:13px; color:#999; line-height:1.6;">We operate from Pietermaritzburg and serve businesses across KwaZulu-Natal and nationally. This contact information does not constitute legal advice.</p>
     </div>
   </div>
 </section>
@@ -1623,7 +1597,7 @@ footer {
 
     <div class="footer-bottom">
       <p>© 2026 Infinity Analytica. Pietermaritzburg, KwaZulu-Natal. This website and the services described do not constitute legal advice. All compliance frameworks are tailored to your organisation's specific context. Compliance responsibility remains with the client organisation.</p>
-      <span>inai/ai_division.html</span>
+      <span>inai.co.za</span>
     </div>
   </div>
 </footer>
@@ -1654,6 +1628,5 @@ window.addEventListener('click', function(e) {
   }
 });
 </script>
-
 </body>
 </html>
